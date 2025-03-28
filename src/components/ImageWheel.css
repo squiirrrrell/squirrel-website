@@ -1,0 +1,114 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.inside-banner {
+  position: relative;
+  top: 10%;
+  transform-style: preserve-3d;
+}
+
+.banner .slider {
+  position: absolute;
+  width: 80vh;
+  height: 80vh;
+  top: 10%;
+  left: calc(50% - 30vh);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: autoRun 20s linear infinite;
+}
+
+@keyframes autoRun {
+  from {
+    transform: perspective(5000px) rotateY(-40deg) rotateX(0deg);
+  }
+  to {
+    transform: perspective(5000px) rotateY(-40deg) rotateX(-360deg);
+  }
+}
+
+.banner .slider .item {
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: rotateZ(
+      calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+    )
+    translateZ(550px);
+}
+
+.banner .slider .item img {
+  width: 40vh;
+  height: 40vh;
+  object-fit: cover;
+}
+
+.banner .slider ._01 {
+  z-index: 8;
+  transform: rotateX(90deg);
+}
+.banner .slider ._02 {
+  z-index: 7;
+  transform: rotateX(45deg);
+}
+.banner .slider ._03 {
+  z-index: 6;
+  transform: rotateX(0deg);
+}
+.banner .slider ._04 {
+  z-index: 5;
+  transform: rotateX(-45deg);
+}
+.banner .slider ._05 {
+  z-index: 4;
+  transform: rotateX(-90deg);
+}
+.banner .slider ._06 {
+  z-index: 3;
+  transform: rotateX(-135deg);
+}
+.banner .slider ._07 {
+  z-index: 2;
+  transform: rotateX(-180deg);
+}
+.banner .slider ._08 {
+  z-index: 1;
+  transform: rotateX(-225deg);
+}
+
+@media (max-width: 425px) {
+  .banner .slider {
+    position: absolute;
+    width: 40vh;
+    height: 40vh;
+    top: 20vh;
+    left: calc(50% - 12vh);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+  }
+
+  .banner .slider .item img {
+    width: 20vh;
+    height: 20vh;
+  }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 424px) {
+  .banner .slider {
+    top: 10%;
+    left: calc(50% - 25vh);
+  }
+}

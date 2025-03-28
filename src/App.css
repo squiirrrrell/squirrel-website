@@ -1,0 +1,17 @@
+@import "tailwindcss";
+:root {
+  --bueno: "Bueno";
+  --satoshi: "Satoshi";
+  --white: #fafafa;
+  --black: #050505;
+  --grey: #777;
+  --lightgrey: #ebebeb;
+  --purple: #d99eff;
+}
+
+html,
+body {
+  font-family: var(--bueno), "Impact";
+  box-sizing: border-box;
+  background: var(--black);
+}
